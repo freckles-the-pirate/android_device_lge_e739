@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- See http://wiki.cyanogenmod.org/w/Doc:_Using_manifests#The_local_manifest -->
+<manifest>
+
+  <remote name="e739" fetch="https://github.com" />
+
+  <!--<remove-project name="freckles-the-pirate/android_device_lg_e739" />-->
+
+  <project path="device/lge/e739/"
+    name="CyanogenMod/android_device_lge_e739"
+    remote="e739"
+    revision="ics" />
+
+</manifest>
