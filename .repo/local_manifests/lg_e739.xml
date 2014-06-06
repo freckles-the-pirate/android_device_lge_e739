@@ -7,7 +7,7 @@
   <!--<remove-project name="freckles-the-pirate/android_device_lg_e739" />-->
 
   <project path="device/lge/e739/"
-    name="CyanogenMod/android_device_lge_e739"
+    name="freckles-the-pirate/android_device_lge_e739"
     remote="e739"
     revision="ics" />
 
