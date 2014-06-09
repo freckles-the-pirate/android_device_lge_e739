@@ -10,10 +10,12 @@ TARGET_CPU_VARIANT := scorpion
 # Try to build the kernel
 TARGET_KERNEL_CONFIG := cyanogen_e739_defconfig
 # Keep this as a fallback
-TARGET_PREBUILT_KERNEL := device/lge/e739/prebuilt/kernel
+#TARGET_PREBUILT_KERNEL := device/lge/e739/prebuilt/kernel
+TARGET_PREBUILT_KERNEL := kernel/lge/msm7x30/
 
 TARGET_OTA_ASSERT_DEVICE:=e730,e739
 
 # Overrides for a working kernel.
 
-BOARD_CUSTOM_GRAPHICS := bootable/recovery-cm/miniui/device.c
+#BOARD_CUSTOM_GRAPHICS := graphics.c
+BOARD_CUSTOM_GRAPHICS := ../../../bootable/recovery-cm/minui/graphics.c
