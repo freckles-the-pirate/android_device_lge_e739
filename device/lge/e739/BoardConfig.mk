@@ -18,4 +18,5 @@ TARGET_OTA_ASSERT_DEVICE:=e730,e739
 # Overrides for a working kernel.
 
 #BOARD_CUSTOM_GRAPHICS := graphics.c
-BOARD_CUSTOM_GRAPHICS := ../../../bootable/recovery-cm/minui/graphics.c
+# BOARD_CUSTOM_GRAPHICS := ../../../bootable/recovery-cm/minui/graphics.c
+# RECOVERY_VARIANT := cm
