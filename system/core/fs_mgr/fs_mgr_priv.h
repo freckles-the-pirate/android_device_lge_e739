@@ -20,17 +20,8 @@
 #include <cutils/klog.h>
 #include <fs_mgr.h>
 
-#define KLOG_LEVEL_ERROR    3
-#define KLOG_LEVEL_WARNING  4
-#define KLOG_LEVEL_NOTICE   5
-#define KLOG_LEVEL_INFO     6
-#define KLOG_LEVEL_DEBUG    7
-
 #define INFO(x...)    KLOG_INFO("fs_mgr", x)
 #define ERROR(x...)   KLOG_ERROR("fs_mgr", x)
-#define DEBUG(x...)   KLOG_DEBUG("fs_mgr", x)
-
-#define KLOG_DEFAULT_LEVEL  KLOG_LEVEL_DEBUG
 
 #define CRYPTO_TMPFS_OPTIONS "size=128m,mode=0771,uid=1000,gid=1000"
 

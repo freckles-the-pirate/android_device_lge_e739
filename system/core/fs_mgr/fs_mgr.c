@@ -262,7 +262,6 @@ struct fstab *fs_mgr_read_fstab(const char *fstab_path)
 
     entries = 0;
     while ((len = getline(&line, &alloc_len, fstab_file)) != -1) {
-        INFO("Parsing the line \"%s\"\n", line);
         /* if the last character is a newline, shorten the string by 1 byte */
         if (line[len - 1] == '\n') {
             line[len - 1] = '\0';
@@ -336,8 +335,6 @@ struct fstab *fs_mgr_read_fstab(const char *fstab_path)
 
         if (!(p = strtok_r(NULL, delim, &save_ptr))) {
             ERROR("Error parsing mount_flags\n");
-            ERROR("    LINE \"%s\"\n", line);
-            ERROR("    FILE: \"%s\"\n", fstab_path);
             goto err;
         }
         tmp_fs_options[0] = '\0';
