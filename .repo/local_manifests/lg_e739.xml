@@ -11,4 +11,9 @@
     remote="e739"
     revision="ics" />
 
+  <project path="test/"
+          name="freckles-the-pirate/android_device_lge_e739/test"
+    remote="e739"
+    revision="cm11_lge-e739" />
+
 </manifest>
