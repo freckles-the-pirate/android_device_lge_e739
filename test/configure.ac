@@ -9,7 +9,15 @@ AC_CONFIG_HEADERS([config.h])
 
 # Configure stuff for cross-compiling
 AC_DEFUN([ANDROID_ROOT], [`pwd`/..])
-AC_DEFUN([TOOLCHAIN], [`pwd`/toolchain/])
+AC_DEFUN([TOOLCHAIN], [`pwd`/toolchain])
+AC_DEFUN([BIN_PRE], [arm-linux-androideabi])
+
+AC_PREFIX_DEFAULT([TOOLCHAIN])
+
+# Set the executable paths.
+AC_PROG_CC([TOOLCHAIN/bin/BIN_PRE-gcc])
+AC_PROG_CPP([TOOLCHAIN/bin/BIN_PRE-cpp])
+AC_PROG_CXX([TOOLCHAIN/bin/BIN_PRE-g++])
 
 # Checks for programs.
 AC_PROG_CXX
