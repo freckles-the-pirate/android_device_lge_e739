@@ -3,24 +3,27 @@
 VERSION = 2
 PATCHLEVEL = 6
 SUBLEVEL = 32
-EXTRAVERSION = .60Kappa-1.6
+# EXTRAVERSION = .60Kappa-1.6
 
-PWD:=$(shell pwd)
+# Add system-like paths to variables.
+TEST_DIR:=$(shell pwd)
 ANDROID_ROOT=$(PWD)/..
-
-#KERNEL_DIR=$(ANDROID_ROOT)/kernel/lge/msm7x30
 KERNEL_DIR=$(ANDROID_ROOT)
 
 # Add variables to make the toolchain paths less painful.
-TOOLCHAIN_DIR=$(TEST_DIR)/test/toolchain
-VAR_TOOLCHAIN=$(TOOLCHAIN_DIR)/bin/arm-linux-android-eabi-
+TOOLCHAIN_DIR=$(TEST_DIR)/toolchain
+VAR_TOOLCHAIN=$(TOOLCHAIN_DIR)/bin/arm-linux-androideabi-
 
-DIR_FS_MGR:="system/core/fs_mgr"
+DIR_FS_MGR:=system/core/fs_mgr
 
-#include "$(PWD)/$(DIR_SF_MGR)/Makefile"
+# MAKE SETTINGS
+# Set the appropriate executables.
+# CROSS_COMPILE:=$(VAR_TOOLCHAIN)
+CC:=gcc
 
-obj-m := $(PWD)/$(DIR_SF_MGR)/main.c
-default:
-	    $(MAKE) ARCH=arm CROSS_COMPILE=$(VAR_TOOLCHAIN)- -C $(KERNEL_DIR) SUBDIRS=$(PWD) modules
-clean:
-	    $(MAKE) -C $(KERNEL_DIR) SUBDIRS=$(PWD) clean
+#### IMPORTANT ####
+# If you write a test, add the Makefile to the Makefiles
+# 	below.
+######
+# Compile the test makefiles.
+include $(TEST_DIR)/$(DIR_FS_MGR)/Makefile
