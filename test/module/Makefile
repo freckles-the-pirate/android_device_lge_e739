@@ -1,6 +1,7 @@
 VERSION = 2
 PATCHLEVEL = 6
 SUBLEVEL = 32
+ARCH=ARM
 
 # Typically not set for testing.
 # OUT_DIR=/home/jordan/Projects/programming/android/cyanogenmod/11/out
@@ -16,6 +17,7 @@ default:
 			CROSS_COMPILE=../toolchain/bin/arm-linux-androideabi- \
 			-C $(KERNEL_DIR) \
 			SUBDIRS=$(PWD) \
+			ARCH=$(ARCH)
 			all_modules 
 
 clean:
