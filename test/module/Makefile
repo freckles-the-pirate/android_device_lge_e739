@@ -2,25 +2,29 @@ VERSION = 2
 PATCHLEVEL = 6
 SUBLEVEL = 32
 ARCH=ARM
-
-# Typically not set for testing.
-# OUT_DIR=/home/jordan/Projects/programming/android/cyanogenmod/11/out
-
-#KERNEL_DIR=../../kernel/lge/msm7x30/
-KERNEL_DIR=../../
+TARGET=modules
 
 obj-m := hello.o
 PWD := $(shell pwd)
 
+OUT_DIR := $(PWD)
+
+KERNEL_DIR=$(PWD)/../..
+
 default:
-	    $(MAKE) ARCH=arm \
-			CROSS_COMPILE=../toolchain/bin/arm-linux-androideabi- \
-			-C $(KERNEL_DIR) \
-			SUBDIRS=$(PWD) \
-			ARCH=$(ARCH)
-			all_modules 
+	cd $(KERNEL_DIR) && \
+	$(MAKE) ARCH=arm \
+    CROSS_COMPILE=$(PWD)/../toolchain/bin/arm-linux-androideabi- \
+    -C $(KERNEL_DIR) \
+    SUBDIRS=$(PWD) \
+    ARCH=$(ARCH) \
+	$(TARGET)
+
+listtargets:
+	@echo "$(call module-names-for-tag-list,$(ALL_MODULE_TAGS))" | \
+  tr -s ' ' '\n' | sort -u | $(COLUMN)
 
 clean:
-	    $(MAKE) -C $(KERNEL_DIR) \
-		SUBDIRS=$(PWD) \
-		clean
+    $(MAKE) -C $(KERNEL_DIR) \
+	SUBDIRS=$(PWD) \
+	clean
